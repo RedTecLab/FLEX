@@ -66,7 +66,7 @@
                 }
             }];
         } else {
-            [app openURL:url];
+            [app openURL:url options:@{} completionHandler:nil];
         }
     } else {
         [FLEXAlert showAlert:@"Error" message:@"Invalid URL" from:host];
