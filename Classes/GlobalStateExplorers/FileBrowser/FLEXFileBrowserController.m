@@ -270,7 +270,8 @@ typedef NS_ENUM(NSUInteger, FLEXFileBrowserSortAttribute) {
             id object = nil;
             @try {
                 // Try to decode an archived object regardless of file extension
-                object = [NSKeyedUnarchiver unarchiveObjectWithData:fileData];
+                object = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSObject class] fromData:fileData error:NULL];
+
             } @catch (NSException *e) { }
             
             // Try to decode other things instead

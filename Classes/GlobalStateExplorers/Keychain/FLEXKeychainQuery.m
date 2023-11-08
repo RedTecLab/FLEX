@@ -156,7 +156,7 @@
 
 - (id<NSCoding>)passwordObject {
     if (self.passwordData.length) {
-        return [NSKeyedUnarchiver unarchiveObjectWithData:self.passwordData];
+        return [NSKeyedUnarchiver unarchivedObjectOfClass:[NSObject class] fromData:self.passwordData error:NULL];
     }
     
     return nil;
