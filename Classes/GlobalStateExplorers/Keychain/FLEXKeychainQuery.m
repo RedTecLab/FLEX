@@ -150,7 +150,15 @@
 #pragma mark - Accessors
 
 - (void)setPasswordObject:(id<NSCoding>)object {
+    
     self.passwordData = [NSKeyedArchiver archivedDataWithRootObject:object];
+    
+    NSError *error = nil;
+    self.passwordData = [NSKeyedArchiver archivedDataWithRootObject:object requiringSecureCoding:YES error:&error];
+
+    if (error) {
+        NSLog(@"Error archiving password data: %@", error);
+    }
 }
 
 
